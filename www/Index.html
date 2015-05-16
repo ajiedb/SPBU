@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+
+.wrapper {
+    width: 1000px;
+    height: 450px;
+    margin: auto;
+    background: #4C4646;
+    text-align: center;
+}
+
+.contentleft {
+    float: left;
+    height: 450px;
+    width: 296px;
+    border: 2px solid rgb(115, 106, 255);
+}
+
+.contentright {
+    float: right;
+    height: 450px;
+    width: 703px;
+    border: 2px solid rgb(115, 106, 255);
+}
+
+.content1 {
+    height: 350px;
+    width: 700px;
+    border: 1px solid rgb(115, 106, 255);
+}
+
+.content4 {
+    height: 190px;
+    width: 700px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.content41 {
+    float: left;
+    height: 184px;
+    width: 233px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.content411 {
+    height: 24px;
+    width: 233px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.content42 {
+    float: left;
+    height: 184px;
+    width: 233px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.content43 {
+    float: left;
+    height: 184px;
+    width: 232px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.content431 {
+    height: 24px;
+    width: 232px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.content2 {
+    height: 200px;
+    width: 294px;
+    border: 1px solid rgb(115, 106, 255);
+}
+
+.content3 {
+    height: 248px;
+    width: 294px;
+    border: 1px solid rgb(115, 106, 255);
+}
+
+.content31 {
+    float: left;
+    height: 215px;
+    width: 96px;
+}
+
+.content32 {
+    float: left;
+    height: 215px;
+    width: 100px;
+}
+
+.content33 {
+    float:left;
+    height: 215px;
+    width: 96px;
+}
+
+</style>
+<script src="fusioncharts.js" type="text/javascript"></script>
+<script src="fusioncharts.theme.fint.js" type="text/javascript"></script>
+<script src="fusioncharts.widgets.js" type="text/javascript"></script>
+<script src="fusioncharts.charts.js" type="text/javascript"></script>
+<script>
+Shiny.addCustomMessageHandler("totalincome",
+function(message){
+totalincome = message.totalincome;
+t1 = message.t1;
+t2 = message.t2;
+t3 = message.t3;
+var cSatScoreChart = new FusionCharts({
+        type: 'angulargauge',
+        renderAt: 'chart-container',
+        width: '285',
+        height: '165',
+        dataFormat: 'json',
+        dataSource: {
+        "chart": {
+            "manageresize": "1",
+            "origw": "400",
+            "origh": "250",
+            "managevalueoverlapping": "1",
+            "autoaligntickvalues": "1",
+            "bgcolor": "AEC0CA,FFFFFF",
+            "fillangle": "45",
+            "upperlimit": t3,
+            "lowerlimit": "0",
+            "majortmnumber": "10",
+            "majortmheight": "8",
+            "showgaugeborder": "0",
+            "gaugeouterradius": "140",
+            "gaugeoriginx": "205",
+            "gaugeoriginy": "206",
+            "gaugeinnerradius": "2",
+            "formatnumberscale": "1",
+            "numberprefix": "$",
+            "decmials": "2",
+            "tickmarkdecimals": "1",
+            "pivotradius": "17",
+            "showpivotborder": "1",
+            "pivotbordercolor": "000000",
+            "pivotborderthickness": "5",
+            "pivotfillmix": "FFFFFF,000000",
+            "tickvaluedistance": "10",
+            "showborder": "0"
+        },
+        "colorrange": {
+            "color": [
+                {
+                    "minvalue": 0,
+                    "maxvalue": t1,
+                    "code": "399E38"
+                },
+                {
+                    "minvalue": t1,
+                    "maxvalue": t2,
+                    "code": "E48739"
+                },
+                {
+                    "minvalue": t2,
+                    "maxvalue": t3,
+                    "code": "B41527"
+                }
+            ]
+        },
+        "dials": {
+            "dial": [
+                {
+                    "value": totalincome,
+                    "borderalpha": "0",
+                    "bgcolor": "000000",
+                    "basewidth": "28",
+                    "topwidth": "1",
+                    "radius": "130"
+                }
+            ]
+        },
+        "annotations": {
+            "groups": [
+                {
+                    "x": "205",
+                    "y": "207.5",
+                    "items": [
+                        {
+                            "type": "circle",
+                            "x": "0",
+                            "y": "2.5",
+                            "radius": "150",
+                            "startangle": "0",
+                            "endangle": "180",
+                            "fillpattern": "linear",
+                            "fillasgradient": "1",
+                            "fillcolor": "dddddd,666666",
+                            "fillalpha": "100,100",
+                            "fillratio": "50,50",
+                            "fillangle": "0",
+                            "showborder": "1",
+                            "bordercolor": "444444",
+                            "borderthickness": "2"
+                        },
+                        {
+                            "type": "circle",
+                            "x": "0",
+                            "y": "0",
+                            "radius": "145",
+                            "startangle": "0",
+                            "endangle": "180",
+                            "fillpattern": "linear",
+                            "fillasgradient": "1",
+                            "fillcolor": "666666,ffffff",
+                            "fillalpha": "100,100",
+                            "fillratio": "50,50",
+                            "fillangle": "0"
+                        }
+                     ]
+                 }
+             ]
+         }
+     }
+    });
+    cSatScoreChart.render();
+})
+</script>
+<script>
+  Shiny.addCustomMessageHandler("stock",
+  function(message){
+    psolar = message.psolar;
+    ppremium = message.ppremium;
+    ppertamax = message.ppertamax;
+    fuelWidget = new FusionCharts({
+            type: 'cylinder',
+            dataFormat: 'json',
+            id: 'fuelMeter',
+            renderAt: 'chart-container2',
+            width: '88',
+            height: '185',
+            dataSource: {
+              "chart": {
+                  "manageresize": "1",
+                  "bgcolor": "FFFFFF",
+                  "bgalpha": "0",
+                  "showborder": "0",
+                  "lowerlimit": "0",
+                  "upperlimit": "100",
+                  "showtickmarks": "0",
+                  "showtickvalues": "0",
+                  "showlimits": "0",
+                  "numbersuffix": "%",
+                  "decmials": "0",
+                  "cylfillcolor": "CC0000",
+                  "basefontcolor": "CC0000",
+                  "chartleftmargin": "15",
+                  "chartrightmargin": "15",
+                  "charttopmargin": "15"
+              },
+              "value": psolar,
+              "annotations": {
+                  "groups": [
+                      {
+                          "showbelow": "1",
+                          "items": [
+                              {
+                                  "type": "rectangle",
+                                  "x": "$chartStartX+1",
+                                  "y": "$chartStartY+1",
+                                  "tox": "$chartEndX-1",
+                                  "toy": "$chartEndY-1",
+                                  "color": "FFFFFF",
+                                  "alpha": "100",
+                                  "showborder": "0",
+                                  "bordercolor": "CC0000",
+                                  "borderthickness": "2",
+                                  "radius": "10"
+                              }
+                          ]
+                      }
+                  ]
+              }
+          }
+        }).render();
+        fuelWidget = new FusionCharts({
+            type: 'cylinder',
+            dataFormat: 'json',
+            id: 'fuelMeter',
+            renderAt: 'chart-container3',
+            width: '88',
+            height: '185',
+            dataSource: {
+              "chart": {
+                  "manageresize": "1",
+                  "bgcolor": "FFFFFF",
+                  "bgalpha": "0",
+                  "showborder": "0",
+                  "lowerlimit": "0",
+                  "upperlimit": "100",
+                  "showtickmarks": "0",
+                  "showtickvalues": "0",
+                  "showlimits": "0",
+                  "numbersuffix": "%",
+                  "decmials": "0",
+                  "cylfillcolor": "CC0000",
+                  "basefontcolor": "CC0000",
+                  "chartleftmargin": "15",
+                  "chartrightmargin": "15",
+                  "charttopmargin": "15"
+              },
+              "value": ppremium,
+              "annotations": {
+                  "groups": [
+                      {
+                          "showbelow": "1",
+                          "items": [
+                              {
+                                  "type": "rectangle",
+                                  "x": "$chartStartX+1",
+                                  "y": "$chartStartY+1",
+                                  "tox": "$chartEndX-1",
+                                  "toy": "$chartEndY-1",
+                                  "color": "FFFFFF",
+                                  "alpha": "100",
+                                  "showborder": "0",
+                                  "bordercolor": "CC0000",
+                                  "borderthickness": "2",
+                                  "radius": "10"
+                              }
+                          ]
+                      }
+                  ]
+              }
+          }
+        }).render();
+        fuelWidget = new FusionCharts({
+            type: 'cylinder',
+            dataFormat: 'json',
+            id: 'fuelMeter',
+            renderAt: 'chart-container4',
+            width: '88',
+            height: '185',
+            dataSource: {
+              "chart": {
+                  "manageresize": "1",
+                  "bgcolor": "FFFFFF",
+                  "bgalpha": "0",
+                  "showborder": "0",
+                  "lowerlimit": "0",
+                  "upperlimit": "100",
+                  "showtickmarks": "0",
+                  "showtickvalues": "0",
+                  "showlimits": "0",
+                  "numbersuffix": "%",
+                  "decmials": "0",
+                  "cylfillcolor": "CC0000",
+                  "basefontcolor": "CC0000",
+                  "chartleftmargin": "15",
+                  "chartrightmargin": "15",
+                  "charttopmargin": "15"
+              },
+              "value": ppertamax,
+              "annotations": {
+                  "groups": [
+                      {
+                          "showbelow": "1",
+                          "items": [
+                              {
+                                  "type": "rectangle",
+                                  "x": "$chartStartX+1",
+                                  "y": "$chartStartY+1",
+                                  "tox": "$chartEndX-1",
+                                  "toy": "$chartEndY-1",
+                                  "color": "FFFFFF",
+                                  "alpha": "100",
+                                  "showborder": "0",
+                                  "bordercolor": "CC0000",
+                                  "borderthickness": "2",
+                                  "radius": "10"
+                              }
+                          ]
+                      }
+                  ]
+              }
+          }
+        }).render();
+  })
+</script>
+<script>
+Shiny.addCustomMessageHandler("volumetype",
+  function(message){
+  solar1=message.solar1;
+  premium1=message.premium1;
+  pertamax1=message.pertamax1;
+  solar2=message.solar2;
+  premium2=message.premium2;
+  pertamax2=message.pertamax2;
+  solar3=message.solar3;
+  premium3=message.premium3;
+  pertamax3=message.pertamax3;
+  solar4=message.solar4;
+  premium4=message.premium4;
+  pertamax4=message.pertamax4;
+  solar5=message.solar5;
+  premium5=message.premium5;
+  pertamax5=message.pertamax5;
+  var revenueChart = new FusionCharts({
+        type: 'mscolumn3d',
+        renderAt: 'chart-container5',
+        width: '675',
+        height: '300',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "theme": "fint"
+            },
+
+            "categories": [{
+                "category": [{
+                    "label": "Pompa 1"
+                }, {
+                    "label": "Pompa 2"
+                }, {
+                    "label": "Pompa 3"
+                }, {
+                    "label": "Pompa 4"
+                },{
+                    "label": "Pompa 5"
+                }]
+            }],
+            "dataset": [{
+                "seriesname": "Solar",
+                    "data": [{
+                    "value": solar1
+                }, {
+                    "value": solar2
+                }, {
+                    "value": solar3
+                }, {
+                    "value": solar4
+                },{
+                    "value": solar5
+                }]
+            }, {
+                "seriesname": "Premium",
+                    "data": [{
+                    "value": premium1
+                }, {
+                    "value": premium2
+                }, {
+                    "value": premium3
+                }, {
+                    "value": premium4
+                },{
+                    "value": premium5
+                }]
+            },
+              {
+                "seriesname": "Pertamax",
+                    "data": [{
+                    "value": pertamax1
+                }, {
+                    "value": pertamax2
+                }, {
+                    "value": pertamax3
+                }, {
+                    "value": pertamax4
+                },{
+                    "value": pertamax5
+                }]
+            }
+            ]
+        }
+    });
+
+    revenueChart.render();
+})
+</script>
+</head>
+<body>
+<div class="wrapper">
+ <div class="contentleft">
+  <div class="content2" align="center">
+     <img src="TotIn.jpg" style="width:275px;height:30px"> 
+     <div id="chart-container">FusionCharts will render here</div>
+  </div>
+  <div class="content3" align="center">
+       <img src="RemStock.jpg" style="width:275px;height:30px">
+       <div class="content31">
+       <div id="chart-container2">FusionCharts will render here</div>
+       <img src="Solar.jpg" style="width:90px;height:15px"> 
+       </div>
+       <div class="content32">
+       <div id="chart-container3">FusionCharts will render here</div>
+       <img src="Premium.jpg" style="width:90px;height:15px"> 
+       </div>
+       <div class="content33">
+       <div id="chart-container4">FusionCharts will render here</div>
+       <img src="Pertamax.jpg" style="width:90px;height:15px"> 
+       </div>
+  </div>
+ </div>
+ <div class="contentright"> 
+  <div class="content1" align="center">
+    <img src="VolType.jpg" style="width:698px;height:40px">
+    <div id="chart-container5">FusionCharts will render here</div>
+  </div>
+  <div class="content4" align="center">
+   <div class="content41" align="center">
+    <div class="content411">
+     <img src="type.jpg" style="width:230px;height:22px" align="top">
+    </div>
+    <div class="content411" align="center">
+      <p id="solar" style="color:white"></p>
+      <script>
+        var name = "Solar";
+        document.getElementById("solar").innerHTML = name;
+      </script>
+    </div>
+    <div class="content411" align="center">
+      <p id="premium" style="color:white"></p>
+      <script>
+        var name = "Premium";
+        document.getElementById("premium").innerHTML = name;
+      </script>
+    </div>
+    <div class="content411" align="center">
+      <p id="pertamax" style="color:white"></p>
+      <script>
+        var name = "Pertamax";
+        document.getElementById("pertamax").innerHTML = name;
+      </script>
+    </div>
+   </div>
+   <div class="content42" align="center">
+    <div class="content411" align="center">
+      <img src="Rp..jpg" style="width:230px;height:22px" align="top">
+    </div>
+    <div class="content411" align="center">
+      <p id="solarp" style="color:white"></p>
+    </div>
+    <div class="content411" align="center">
+      <p id="premiump" style="color:white"></p>
+    </div>
+    <div class="content411" align="center">
+      <p id="pertamaxp" style="color:white"></p>
+    </div>
+   <script>
+    Shiny.addCustomMessageHandler("price",
+    function(message){
+      solarp=message.solar;
+      premiump=message.premium;
+      pertamaxp=message.pertamax;
+      document.getElementById("solarp").innerHTML = solarp;
+      document.getElementById("premiump").innerHTML = premiump;
+      document.getElementById("pertamaxp").innerHTML = pertamaxp;
+    }) 
+   </script>  
+   </div>
+   <div class="content43" align="center">
+    <div class="content431" align="center">
+      <img src="ltr.jpg" style="width:230px;height:22px" align="top">
+    </div>
+    <div class="content431" align="center">
+      <p id="liter1" style="color:white"></p>
+      <script>
+        var name = "1 Liter";
+        document.getElementById("liter1").innerHTML = name;
+      </script>
+    </div> 
+    <div class="content431" align="center">
+      <p id="liter2" style="color:white"></p>
+      <script>
+        var name = "1 Liter";
+        document.getElementById("liter2").innerHTML = name;
+      </script>
+    </div> 
+    <div class="content431" align="center">
+      <p id="liter3" style="color:white"></p>
+      <script>
+        var name = "1 Liter";
+        document.getElementById("liter3").innerHTML = name;
+      </script>
+    </div> 
+   </div>
+  </div>
+ </div>
+</div>
+</body>
+</html>
